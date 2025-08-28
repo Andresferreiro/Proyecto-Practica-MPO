@@ -48,11 +48,12 @@ def obtener_respuesta():
 def corregir_respuesta(respuesta, correcta):
     return respuesta == correcta
 
-
+#Aqui iniciamos el contador de aciertos
 def ejecutar_test(preguntas):
     aciertos = 0
     total = len(preguntas)
-
+# Podemos ver como aqui recorre todas las preguntas y si la respuesta es correcta suma 1.
+# Al final devuelve el numero de aciertos totales y el numero de preguntas.
     for p in preguntas:
         mostrar_pregunta(p)
         r = obtener_respuesta()
@@ -65,14 +66,14 @@ def ejecutar_test(preguntas):
 
     return aciertos, total
 
-
+# con esta funcion calculamos el total de preguntas, el total de aciertos y el porcentaje de aciertos.
 def mostrar_resultados(aciertos, total):
     porcentaje = round((aciertos / total) * 100, 2)
     print("\n### RESULTADOS ###")
     print(f"Total de preguntas: {total}")
     print(f"Aciertos: {aciertos}")
     print(f"Porcentaje: {porcentaje}%")
-
+# Dependiendo del porcentaje de aciertos lanza un comentario distinto.
     if porcentaje == 100:
         valoracion = "¡Excelente!"
     elif porcentaje >= 60:
@@ -84,14 +85,14 @@ def mostrar_resultados(aciertos, total):
 
 
 # ----------------------------
-#  MENÚ PRINCIPAL
+#  MENÚ PRINCIPAL: este es el menu basico para empezar el test
 # ----------------------------
 def menu():
     while True:
         print("\n### MENÚ ###")
         print("1 - Empezar cuestionario")
         print("2 - Salir")
-
+# Da 3 opciones: empezar test, terminar test o en su defecto si no selecionas la opcion 1 o 2 da un mensaje de error.
         opcion = input("Elige una opción: ").strip()
         if opcion == "1":
             preguntas = cargar_preguntas()
